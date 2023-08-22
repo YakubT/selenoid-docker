@@ -18,4 +18,7 @@ jobs:
     - name: Create network
       run: docker network create selenoid
     - name: Run docker-compose
-      run: docker-compose up
+      run: |
+            docker-compose up
+            docker stop $(docker ps -a -q)
+      

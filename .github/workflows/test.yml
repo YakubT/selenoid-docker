@@ -1,0 +1,21 @@
+name: Test with Docker
+
+on:
+  workflow_dispatch
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build -t test .
+    - name: Pull selenoid chrome image
+      run: docker pull selenoid/chrome:latest
+    - name: Create network
+      run: docker network create selenoid
+    - name: Run docker-compose
+      run: docker-compose up

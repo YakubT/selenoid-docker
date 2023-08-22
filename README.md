@@ -1,2 +1,2 @@
 # selenoid-docker
-Testing framefork that uses selenoid + selenium
+Testing framework that uses selenoid + selenium
